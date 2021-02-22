@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="buttonLabel">#FFAAFF</color>
+    <color name="background_label_element">#99F0F0F0</color>
+    <color name="black">#000000</color>
+    <color name="background_image">#555555</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#BBBBBB</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -11,14 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/menuNavigationBar">
+        app:layout_constraintBottom_toTopOf="@id/cardMenuNavigationBar">
     </FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menuNavigationBar"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMenuNavigationBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_navigation"/>
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:id="@+id/menuNavigationBar"
+            android:background="@color/white"
+            app:itemTextColor="@color/black"
+            app:itemIconTint="@color/menu_bar_element"
+            android:layout_height="60dp"
+            app:menu="@menu/bottom_navigation"/>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

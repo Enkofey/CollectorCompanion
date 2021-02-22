@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Search">Rechercher</string>
+    <string name="Collection">Collection</string>
+    <string name="ObjectName">Nom Objet</string>
+    <string name="ObjectYear">Année Objet</string>
+    <string name="ObjectDescription">Description Objet</string>
+    <string name="ButtonSave">Sauvegarder</string>
+    <string name="CollectionName">Nom Collection</string>
+    <string name="Erase">Effacer</string>
+    <string name="Modify">Modifier</string>
+    <string name="Cancel">Annuler</string>
+    <string name="app_name">CollectorCompanion</string>
+    <string name="Yes">Oui</string>
+    <string name="No">Non</string>
+    <string name="Warning">Attention</string>
+    <string name="ConfirmDeleteCollection">Etes vous sur de vouloir supprimer cette collection ?</string>
+    <string name="ConfirmDeleteObject">Etes vous sur de vouloir supprimer cet objet ?</string>
+    <string name="Profile">Profil</string>
+    <string name="LogOut">Déconnexion</string>
+    <string name="DialogQuestion">Que voulez-vous faire ?</string>
+    <string name="AddToCollection">Ajouter à une collection</string>
+</resources>

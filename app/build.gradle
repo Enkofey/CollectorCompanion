@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -9,10 +10,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.collectorcompanion"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,11 +33,41 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    flavorDimensions "urlApi"
+    productFlavors {
+        CollectorApi {
+            dimension "urlApi"
+            applicationIdSuffix = ""
+            versionNameSuffix '-RAM'
+            ext{
+                url_server = "http://192.168.1.15:3080/api/"
+            }
+        }
+        PostmanApi {
+            dimension "urlApi"
+            applicationIdSuffix = ""
+            versionNameSuffix '-postman'
+            ext{
+                url_server = ""
+            }
+        }
+    }
+
+    applicationVariants.all{ variant ->
+        def dimensions = variant.productFlavors
+        def appelsReseau = dimensions[0]
+        def url_server = appelsReseau.ext.url_server
+        variant.buildConfigField "String", "url_server", "\"$url_server\""
+    }
+
 }
 
 dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.wear:wear:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.4.0'
     compileOnly 'com.google.android.wearable:wearable:2.6.0'
     def nav_version = "2.3.0"
     def room_version = "2.2.5"
@@ -71,6 +102,19 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Also declare the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
 
 }
